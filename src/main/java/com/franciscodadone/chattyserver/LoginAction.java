@@ -40,9 +40,7 @@ public class LoginAction extends HttpServlet {
             
             Connection conexion = Database.getConnection();
             Statement statement = conexion.createStatement();
-            statement.executeUpdate("CREATE TABLE distributors (" +
-"     did    integer PRIMARY KEY DEFAULT," +
-"     name   varchar(40) NOT NULL);");
+            statement.executeUpdate("CREATE TABLE distributors (did integer PRIMARY KEY);");
             
         } catch(Exception e) {
             e.printStackTrace();
