@@ -34,6 +34,7 @@ public class LoginAction extends HttpServlet {
             out.println("Username: " + uname);
             out.println("<br>");
             out.println("Password: " + pwd);
+            out.println(System.getenv("DATABASE_URL"));
         }
     }
     
