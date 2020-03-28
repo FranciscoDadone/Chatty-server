@@ -8,6 +8,7 @@ package com.franciscodadone.chattyserver;
 import com.franciscodadone.database.Database;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,7 +36,11 @@ public class LoginAction extends HttpServlet {
             out.println("Username: " + uname);
             out.println("<br>");
             out.println("Password: " + pwd);
-            out.println(Database.getConnection());
+            
+            Connection conexion = Database.getConnection();
+            conexion.prepareStatement("CREATE TABLE tabla");
+            conexion.commit();
+            
         } catch(Exception e) {
             e.printStackTrace();
         }
