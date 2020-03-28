@@ -21,23 +21,32 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginAction extends HttpServlet {
 
     private String uname, pwd;
+    
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
+        uname = request.getParameter("uname");
+        pwd = request.getParameter("pwd");
+        
+        
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+
+            out.println("Username: " + uname);
+            out.println("<br>");
+            out.println("Password: " + pwd);
+        }
+    }
+    
+    
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
+        processRequest(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        uname = request.getParameter("uname");
-        pwd = request.getParameter("pwd");
-        
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        out.println(uname);
-        out.println(pwd);
-        
-        System.out.println("UserName : "+uname);
-        System.out.println("Password : "+pwd);
+        processRequest(request, response);
     }
 
     @Override
