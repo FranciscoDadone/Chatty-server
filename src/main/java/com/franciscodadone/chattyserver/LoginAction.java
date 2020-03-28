@@ -9,6 +9,7 @@ import com.franciscodadone.database.Database;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.Statement;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,8 +39,8 @@ public class LoginAction extends HttpServlet {
             out.println("Password: " + pwd);
             
             Connection conexion = Database.getConnection();
-            conexion.prepareStatement("CREATE TABLE tabla");
-            conexion.commit();
+            Statement statement = conexion.createStatement();
+            statement.executeUpdate("CREATE TABLE tabla");
             
         } catch(Exception e) {
             e.printStackTrace();
