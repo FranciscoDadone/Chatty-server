@@ -40,7 +40,7 @@ public class LoginAction extends HttpServlet {
             
             Connection conexion = Database.getConnection();
             Statement statement = conexion.createStatement();
-            statement.executeUpdate("CREATE TABLE 'tabla1';");
+            statement.executeUpdate("CREATE TABLE 'tabla1'");
             
         } catch(Exception e) {
             e.printStackTrace();
