@@ -40,7 +40,9 @@ public class LoginAction extends HttpServlet {
             
             Connection conexion = Database.getConnection();
             Statement statement = conexion.createStatement();
-            statement.executeUpdate("CREATE TABLE 'tabla1'");
+            statement.executeUpdate("CREATE TABLE distributors (" +
+"     did    integer PRIMARY KEY DEFAULT nextval('serial')," +
+"     name   varchar(40) NOT NULL CHECK (name <> '')" +");");
             
         } catch(Exception e) {
             e.printStackTrace();
